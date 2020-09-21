@@ -1,7 +1,6 @@
 package com.nacsoft.etut.Entities;
 
 import java.text.DateFormat;
-
 import javax.persistence.*;
 import com.nacsoft.etut.Entities.Program;
 import lombok.Data;
