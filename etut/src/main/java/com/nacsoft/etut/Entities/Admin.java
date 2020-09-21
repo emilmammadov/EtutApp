@@ -12,9 +12,9 @@ import lombok.Data;
 public class Admin {
 	
 	@Id
-	@Column(name="id")
+	@Column(name="admin_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private int adminId;
 	
 	@Column(name="username")
 	private String username;
