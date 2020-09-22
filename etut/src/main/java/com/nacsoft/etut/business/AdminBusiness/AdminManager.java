@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.nacsoft.etut.Entities.Admin;
+import com.nacsoft.etut.Entities.Ogrenci;
+import com.nacsoft.etut.Entities.Ogretmen;
 import com.nacsoft.etut.dataAccess.AdminDal.IAdminDal;
 
 @Service
@@ -20,34 +22,55 @@ public class AdminManager implements IAdminService {
 	@Override
 	@Transactional
 	public List<Admin> getAll() {
+		// iş kuralları yazılacak, if kontrolleri falan
 		return this.adminDal.getAll();
 	}
 
 	@Override
 	@Transactional
-	public void add(Admin admin) {
-		// TODO Auto-generated method stub
-
+	public void addTeacher(Ogretmen ogretmen) {
+		// iş kuralları yazılacak, if kontrolleri falan
+		this.adminDal.addTeacher(ogretmen);
+		
 	}
 
+	@Override
+	@Transactional
+	public void addStudent(Ogrenci ogrenci) {
+		// iş kuralları yazılacak, if kontrolleri falan
+		this.adminDal.addStudent(ogrenci);
+		
+	}
+
+	@Override
+	@Transactional
+	public void delateTeacher(Ogretmen ogretmen) {
+		// iş kuralları yazılacak, if kontrolleri falan
+		this.adminDal.delateTeacher(ogretmen);
+		
+	}
+
+	@Override
+	@Transactional
+	public void delateStudent(Ogrenci ogrenci) {
+		
+		// iş kuralları yazılacak, if kontrolleri falan
+		this.adminDal.delateStudent(ogrenci);
+		
+	}
+	
 	@Override
 	@Transactional
 	public void update(Admin admin) {
 		// TODO Auto-generated method stub
 
 	}
-
+	
 	@Override
 	@Transactional
-	public void delate(Admin admin) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public Admin getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		// iş kuralları yazılacak, if kontrolleri falan
+		return this.adminDal.getById(id);
 	}
 
 }
