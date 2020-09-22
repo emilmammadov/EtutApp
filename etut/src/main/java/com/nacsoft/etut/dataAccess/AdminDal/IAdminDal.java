@@ -9,5 +9,7 @@ public interface IAdminDal {
 	void add(Admin admin);
 	void update(Admin admin);
 	void delate(Admin admin);
+	Admin getByUsername(String username);
 
 }
+

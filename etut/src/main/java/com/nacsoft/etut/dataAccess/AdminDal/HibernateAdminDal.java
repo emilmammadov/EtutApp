@@ -44,5 +44,12 @@ private EntityManager entityManager;
 		// TODO Auto-generated method stub
 
 	}
+	
+	@Override
+	public Admin getByUsername(String username) {
+		Session session = entityManager.unwrap(Session.class);
+		Admin admin = session.get(Admin.class, username);
+		return admin;
+	}
 
 }

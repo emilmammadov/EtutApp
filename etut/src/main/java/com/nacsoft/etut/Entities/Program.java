@@ -24,10 +24,10 @@ public class Program {
 	@Column(name="ogrenci_id")
 	private int ogrenciId;
 	
-	@Column(name="tarih")
-	private DateFormat tarih;
+	@Column(name="randevu_tarihi")
+	private DateFormat randevuTarihi;
 	
-	@Column(name="saat")
-	private DateFormat saat;
+	@Column(name="statu")
+	private boolean onayDurumu;
 
 }
