@@ -44,4 +44,10 @@ public class AdminManager implements IAdminService {
 
 	}
 
+	@Override
+	public Admin getById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

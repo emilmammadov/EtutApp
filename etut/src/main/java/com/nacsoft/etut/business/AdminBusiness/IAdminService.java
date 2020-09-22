@@ -10,5 +10,6 @@ public interface IAdminService {
 	void add(Admin admin);
 	void update(Admin admin);
 	void delate(Admin admin);
+	Admin getById(int id);
 
 }

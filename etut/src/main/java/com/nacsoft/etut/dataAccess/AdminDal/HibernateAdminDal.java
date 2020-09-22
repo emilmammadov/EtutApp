@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import com.nacsoft.etut.Entities.Admin;
+import com.nacsoft.etut.Entities.Ogrenci;
+import com.nacsoft.etut.Entities.Ogretmen;
 
 @Component
 public class HibernateAdminDal implements IAdminDal {
@@ -26,12 +28,37 @@ private EntityManager entityManager;
 		List<Admin> admins = session.createQuery("from Admin", Admin.class).getResultList();
 		return admins;
 	}
+	
+	@Override
+	public void addTeacher(Ogretmen ogretmen) {
+		Session session = entityManager.unwrap(Session.class);
+		session.save(ogretmen);
+		
+	}
+	
+	@Override
+	public void addStudent(Ogrenci ogrenci) {
+		Session session = entityManager.unwrap(Session.class);
+		session.save(ogrenci);
+		
+	}
+	
+	@Override
+	public void delateTeacher(Ogretmen ogretmen) {
+		Session session = entityManager.unwrap(Session.class);
+		session.delete(ogretmen);
+		
+	}
+
 
 	@Override
-	public void add(Admin admin) {
-		// TODO Auto-generated method stub
-
+	public void delateStudent(Ogrenci ogrenci) {
+		Session session = entityManager.unwrap(Session.class);
+		session.delete(ogrenci);
+		
 	}
+
+	
 
 	@Override
 	public void update(Admin admin) {
@@ -39,17 +66,19 @@ private EntityManager entityManager;
 
 	}
 
-	@Override
-	public void delate(Admin admin) {
-		// TODO Auto-generated method stub
-
-	}
 	
 	@Override
-	public Admin getByUsername(String username) {
+	public Admin getById(int id) {
 		Session session = entityManager.unwrap(Session.class);
-		Admin admin = session.get(Admin.class, username);
+		Admin admin = session.get(Admin.class, id);
 		return admin;
 	}
+
+
+
+
+
+
+	
 
 }
