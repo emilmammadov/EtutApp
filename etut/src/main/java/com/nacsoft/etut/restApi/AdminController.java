@@ -25,5 +25,7 @@ public class AdminController {
 		return adminService.getAll();
 		
 	}
+	
+	
 
 }

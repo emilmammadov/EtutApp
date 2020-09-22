@@ -1,9 +1,9 @@
-package com.nacsoft.etut.dataAccess.TeacherDal;
+package com.nacsoft.etut.business.StudentBusiness;
 
 import java.util.List;
 import com.nacsoft.etut.Entities.Program;
 
-public interface ITeacherDal {
+public interface ITeacherService {
 	
 	List<Program> onaylanmisDersler();
 	List<Program> bekleyenDersler();
