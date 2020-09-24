@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.nacsoft.etut.Entities.Program;
+import com.nacsoft.etut.Entities.Teacher;
 import com.nacsoft.etut.dataAccess.TeacherDal.ITeacherDal;
 
 @Service
@@ -49,6 +50,11 @@ public class TeacherManager implements ITeacherService {
 	public void delate(Program program) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public Teacher login(Teacher teacher) {
+		return this.teacherDal.login(teacher);
 	}
 
 }

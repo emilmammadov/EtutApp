@@ -1,13 +1,13 @@
 package com.nacsoft.etut.Entities;
 
 import javax.persistence.*;
-import com.nacsoft.etut.Entities.Ogretmen;
+import com.nacsoft.etut.Entities.Teacher;
 import lombok.Data;
 
 @Entity                         
 @Table(name="ogretmen")
 @Data
-public class Ogretmen {
+public class Teacher {
 	
 	@Id
 	@Column(name="ogretmen_id")

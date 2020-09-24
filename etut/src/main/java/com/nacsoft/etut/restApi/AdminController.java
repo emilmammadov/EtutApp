@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.nacsoft.etut.Entities.Admin;
-import com.nacsoft.etut.Entities.Ogrenci;
-import com.nacsoft.etut.Entities.Ogretmen;
+import com.nacsoft.etut.Entities.Student;
+import com.nacsoft.etut.Entities.Teacher;
 import com.nacsoft.etut.business.AdminBusiness.IAdminService;
 
 @RestController
@@ -33,23 +33,28 @@ public class AdminController {
 		
 	}
 	
+	@PostMapping("/login")
+	public Admin login(@RequestBody Admin admin) {
+		return adminService.login(admin);
+	}
+	
 	@PostMapping("/ogrenciekle")
-	public void ogrenciEkle(@RequestBody Ogrenci ogrenci) {
+	public void ogrenciEkle(@RequestBody Student ogrenci) {
 		adminService.addStudent(ogrenci);
 	}
 	
 	@PostMapping("/ogrencisil")
-	public void ogrenciSil(@RequestBody Ogrenci ogrenci) {
+	public void ogrenciSil(@RequestBody Student ogrenci) {
 		adminService.delateStudent(ogrenci);
 	}
 	
 	@PostMapping("/ogretmenekle")
-	public void ogretmenEkle(@RequestBody Ogretmen ogretmen) {
+	public void ogretmenEkle(@RequestBody Teacher ogretmen) {
 		adminService.addTeacher(ogretmen);
 	}
 	
 	@PostMapping("/ogretmensil")
-	public void ogretmenSil(@RequestBody Ogretmen ogretmen) {
+	public void ogretmenSil(@RequestBody Teacher ogretmen) {
 		adminService.delateTeacher(ogretmen);
 	}
 	

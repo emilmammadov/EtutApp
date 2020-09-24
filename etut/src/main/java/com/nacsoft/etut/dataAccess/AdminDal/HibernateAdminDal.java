@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import com.nacsoft.etut.Entities.Admin;
-import com.nacsoft.etut.Entities.Ogrenci;
-import com.nacsoft.etut.Entities.Ogretmen;
+import com.nacsoft.etut.Entities.Student;
+import com.nacsoft.etut.Entities.Teacher;
 
 @Component
 public class HibernateAdminDal implements IAdminDal {
@@ -30,21 +30,21 @@ private EntityManager entityManager;
 	}
 	
 	@Override
-	public void addTeacher(Ogretmen ogretmen) {
+	public void addTeacher(Teacher ogretmen) {
 		Session session = entityManager.unwrap(Session.class);
 		session.save(ogretmen);
 		
 	}
 	
 	@Override
-	public void addStudent(Ogrenci ogrenci) {
+	public void addStudent(Student ogrenci) {
 		Session session = entityManager.unwrap(Session.class);
 		session.save(ogrenci);
 		
 	}
 	
 	@Override
-	public void delateTeacher(Ogretmen ogretmen) {
+	public void delateTeacher(Teacher ogretmen) {
 		Session session = entityManager.unwrap(Session.class);
 		session.delete(ogretmen);
 		
@@ -52,7 +52,7 @@ private EntityManager entityManager;
 
 
 	@Override
-	public void delateStudent(Ogrenci ogrenci) {
+	public void delateStudent(Student ogrenci) {
 		Session session = entityManager.unwrap(Session.class);
 		session.delete(ogrenci);
 		
@@ -72,6 +72,16 @@ private EntityManager entityManager;
 		Session session = entityManager.unwrap(Session.class);
 		Admin admin = session.get(Admin.class, id);
 		return admin;
+	}
+
+
+	@Override
+	public Admin login(Admin admin) {
+		Session session = entityManager.unwrap(Session.class);
+		Admin admin2 = session.createQuery(
+				"from Admin where username='" + admin.getUsername() + 
+				"' and password='"+ admin.getPassword() +"'", Admin.class).uniqueResult();
+		return admin2;
 	}
 
 }

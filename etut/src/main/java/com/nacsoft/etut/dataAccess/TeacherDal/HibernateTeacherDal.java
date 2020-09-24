@@ -6,7 +6,9 @@ import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+
 import com.nacsoft.etut.Entities.Program;
+import com.nacsoft.etut.Entities.Teacher;
 
 @Component
 public class HibernateTeacherDal implements ITeacherDal {
@@ -51,6 +53,15 @@ public class HibernateTeacherDal implements ITeacherDal {
 	public void delate(Program program) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public Teacher login(Teacher teacher) {
+		Session session = entityManager.unwrap(Session.class);
+		Teacher teacher2 = session.createQuery(
+				"from Teacher where username='" + teacher.getUsername() + 
+				"' and password='"+ teacher.getPassword() +"'", Teacher.class).uniqueResult();
+		return teacher2;
 	}
 
 }

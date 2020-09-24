@@ -2,14 +2,14 @@ package com.nacsoft.etut.dataAccess.StudentDal;
 
 import java.util.List;
 
-import com.nacsoft.etut.Entities.Ogrenci;
+import com.nacsoft.etut.Entities.Student;
 
 public interface IStudentDal {
 	
-	List<Ogrenci> getAll();
-	void add(Ogrenci ogrenci);
-	void update(Ogrenci ogrenci);
-	void delate(Ogrenci ogrenci);
+	List<Student> getAll();
+	void add(Student ogrenci);
+	void update(Student ogrenci);
+	void delate(Student ogrenci);
 
 }
 

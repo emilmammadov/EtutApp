@@ -5,8 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.nacsoft.etut.Entities.Admin;
-import com.nacsoft.etut.Entities.Ogrenci;
-import com.nacsoft.etut.Entities.Ogretmen;
+import com.nacsoft.etut.Entities.Student;
+import com.nacsoft.etut.Entities.Teacher;
 import com.nacsoft.etut.dataAccess.AdminDal.IAdminDal;
 
 @Service
@@ -28,7 +28,7 @@ public class AdminManager implements IAdminService {
 
 	@Override
 	@Transactional
-	public void addTeacher(Ogretmen ogretmen) {
+	public void addTeacher(Teacher ogretmen) {
 		// iş kuralları yazılacak, if kontrolleri falan
 		this.adminDal.addTeacher(ogretmen);
 		
@@ -36,7 +36,7 @@ public class AdminManager implements IAdminService {
 
 	@Override
 	@Transactional
-	public void addStudent(Ogrenci ogrenci) {
+	public void addStudent(Student ogrenci) {
 		// iş kuralları yazılacak, if kontrolleri falan
 		this.adminDal.addStudent(ogrenci);
 		
@@ -44,7 +44,7 @@ public class AdminManager implements IAdminService {
 
 	@Override
 	@Transactional
-	public void delateTeacher(Ogretmen ogretmen) {
+	public void delateTeacher(Teacher ogretmen) {
 		// iş kuralları yazılacak, if kontrolleri falan
 		this.adminDal.delateTeacher(ogretmen);
 		
@@ -52,7 +52,7 @@ public class AdminManager implements IAdminService {
 
 	@Override
 	@Transactional
-	public void delateStudent(Ogrenci ogrenci) {
+	public void delateStudent(Student ogrenci) {
 		
 		// iş kuralları yazılacak, if kontrolleri falan
 		this.adminDal.delateStudent(ogrenci);
@@ -71,6 +71,11 @@ public class AdminManager implements IAdminService {
 	public Admin getById(int id) {
 		// iş kuralları yazılacak, if kontrolleri falan
 		return this.adminDal.getById(id);
+	}
+
+	@Override
+	public Admin login(Admin admin) {
+		return this.adminDal.login(admin);
 	}
 
 }
