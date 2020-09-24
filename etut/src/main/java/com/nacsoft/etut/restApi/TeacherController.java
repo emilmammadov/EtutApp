@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.nacsoft.etut.Entities.Program;
 import com.nacsoft.etut.Entities.Teacher;
-import com.nacsoft.etut.business.StudentBusiness.ITeacherService;
+import com.nacsoft.etut.business.TeacherBusiness.ITeacherService;
 
 @RestController
 @RequestMapping("/teacher")

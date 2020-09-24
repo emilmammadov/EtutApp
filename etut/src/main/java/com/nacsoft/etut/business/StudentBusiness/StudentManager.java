@@ -1,4 +1,4 @@
-package com.nacsoft.etut.business.TeacherBusiness;
+package com.nacsoft.etut.business.StudentBusiness;
 
 public class StudentManager implements IStudentService {
 
