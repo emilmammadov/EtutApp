@@ -1,5 +1,8 @@
 package com.nacsoft.etut.business.StudentBusiness;
 
-public interface IStudentService {
+import com.nacsoft.etut.Entities.Student;
 
+public interface IStudentService {
+	Student login(Student student);
+	
 }

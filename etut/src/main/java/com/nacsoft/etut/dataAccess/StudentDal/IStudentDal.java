@@ -10,6 +10,7 @@ public interface IStudentDal {
 	void add(Student ogrenci);
 	void update(Student ogrenci);
 	void delate(Student ogrenci);
+	Student login(Student teacher);
 
 }
 
