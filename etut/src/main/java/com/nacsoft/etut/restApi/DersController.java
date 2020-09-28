@@ -9,10 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nacsoft.etut.Entities.Dersler;
+import com.nacsoft.etut.Entities.Teacher;
 
 @RestController
 @RequestMapping("/ders")
@@ -33,6 +36,12 @@ public class DersController {
 		Session session = entityManager.unwrap(Session.class);   // bir hibernate sessionu ver diyoruz
 		List<Dersler> dersler = session.createQuery("from Dersler", Dersler.class).getResultList();
 		return dersler;
+	}
+	
+	@PostMapping("/add")
+	public void addLecture(@RequestBody Dersler ders) {
+		Session session = entityManager.unwrap(Session.class);
+		session.save(ders);
 	}
 	
 }
