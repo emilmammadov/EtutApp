@@ -20,6 +20,14 @@ public class HibernateTeacherDal implements ITeacherDal {
 	public HibernateTeacherDal(EntityManager entityManager) {
 		this.entityManager = entityManager;
 	}
+	
+	@Override
+	@Transactional      // AOP başında ve sonunda sessionu açar ve kapatır
+	public List<Teacher> getAll() {
+		Session session = entityManager.unwrap(Session.class);   // bir hibernate sessionu ver diyoruz
+		List<Teacher> teachers = session.createQuery("from Teacher", Teacher.class).getResultList();
+		return teachers;
+	}
 
 	@Override
 	@Transactional      // AOP başında ve sonunda sessionu açar ve kapatır

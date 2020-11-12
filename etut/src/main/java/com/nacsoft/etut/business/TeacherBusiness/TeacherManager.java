@@ -17,6 +17,12 @@ public class TeacherManager implements ITeacherService {
 	public TeacherManager(ITeacherDal teacherDal) {
 		this.teacherDal = teacherDal;
 	}
+	
+	@Override
+	@Transactional
+	public List<Teacher> getAll() {
+		return this.teacherDal.getAll();
+	}
 
 	@Override
 	@Transactional

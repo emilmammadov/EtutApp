@@ -25,6 +25,12 @@ public class TeacherController {
 		this.teacherService = teacherService;
 	}
 	
+	@GetMapping("/all")
+	public List<Teacher> get(){
+		return teacherService.getAll();
+		
+	}
+	
 	@GetMapping("/randevu-olustur")
 	public List<Program> onaylanmisDersler(){
 		return teacherService.onaylanmisDersler();

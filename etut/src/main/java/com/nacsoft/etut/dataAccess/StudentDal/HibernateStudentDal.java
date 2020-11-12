@@ -22,8 +22,9 @@ public class HibernateStudentDal implements IStudentDal {
 
 	@Override
 	public List<Student> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = entityManager.unwrap(Session.class);   // bir hibernate sessionu ver diyoruz
+		List<Student> students = session.createQuery("from Student", Student.class).getResultList();
+		return students;
 	}
 
 	@Override

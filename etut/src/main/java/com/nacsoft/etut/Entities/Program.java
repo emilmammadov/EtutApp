@@ -1,7 +1,10 @@
 package com.nacsoft.etut.Entities;
 
-import java.text.DateFormat;
+import java.sql.Timestamp;
+import java.util.Date;
+
 import javax.persistence.*;
+
 import com.nacsoft.etut.Entities.Program;
 import lombok.Data;
 
@@ -13,10 +16,8 @@ public class Program {
 	
 	@Id
 	@Column(name="program_id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int programId;
-	
-	@Column(name="ders_id")
-	private int dersId;
 	
 	@Column(name="ogretmen_id")
 	private int ogretmenId;
@@ -24,10 +25,13 @@ public class Program {
 	@Column(name="ogrenci_id")
 	private int ogrenciId;
 	
-	@Column(name="randevu_tarihi")
-	private DateFormat randevuTarihi;
+	@Column(name="randevu_start")
+	private Timestamp randevuStart;
+	
+	@Column(name="randevu_end")
+	private Timestamp randevuEnd;
 	
 	@Column(name="statu")
-	private boolean onayDurumu;
+	private boolean status;
 
 }
